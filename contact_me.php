@@ -2,22 +2,22 @@
 
 if($_POST)
 {
-	$to_Email   	= "support@dexifly.com"; //Replace with recipient email address
+	$to_Email   	= "mariafab@yahoo.com"; //Replace with recipient email address
 	$subject        = 'Message from my website'; //Subject line for emails
-	
+
 	//check if its an ajax request, exit if not
     if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
-	
+
 		//exit script outputting json data
 		$output = json_encode(
 		array(
-			'type'=>'error', 
+			'type'=>'error',
 			'text' => 'Request must come from Ajax'
 		));
-		
+
 		die($output);
-    } 
-	
+    }
+
 	//check $_POST vars are set, exit if any missing
 	if(!isset($_POST["userName"]) || !isset($_POST["userEmail"]) || !isset($_POST["userMessage"]))
 	{
@@ -30,8 +30,8 @@ if($_POST)
 	$user_Email       = filter_var($_POST["userEmail"], FILTER_SANITIZE_EMAIL);
 	$user_Message     = filter_var($_POST["userMessage"], FILTER_SANITIZE_STRING);
 	$user_Company     = filter_var($_POST["userCompany"], FILTER_SANITIZE_STRING);
-	
-	
+
+
 	//additional php validation
 	if(strlen($user_Name)<4) // If length is less than 4 it will throw an HTTP error.
 	{
@@ -48,14 +48,14 @@ if($_POST)
 		$output = json_encode(array('type'=>'error', 'text' => 'Too short message! Please enter something.'));
 		die($output);
 	}
-	
+
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 	$headers .= 'From: ' . $user_Email . "\r\n";
 
-	$message = '<html> 
-       <head> 
-          <title>Message</title> 
+	$message = '<html>
+       <head>
+          <title>Message</title>
        </head>
        <body>
           <p><strong>Full name:</strong> ' . $user_Name . '</p>
@@ -73,7 +73,7 @@ if($_POST)
 		$output = json_encode(array('type'=>'error', 'text' => 'Could not send mail! Please check your PHP mail configuration.'));
 		die($output);
 	}else{
-		$output = json_encode(array('type'=>'message', 'text' => 'Hi '.$user_Name .'! Thank you for your email'));
+		$output = json_encode(array('type'=>'message', 'text' => 'Hi '.$user_Name .' Thank you for your email. I will get back to you as soon as I can!'));
 		die($output);
 	}
 }
