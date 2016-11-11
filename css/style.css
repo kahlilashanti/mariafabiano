@@ -13,6 +13,10 @@
     border: 2px solid #0099cc;
    }
 
+#free_cons_1 {
+  color: white;
+}
+
 html {
   overflow-y: scroll;
   -ms-overflow-style: scrollbar;
@@ -113,6 +117,15 @@ hr {
   margin: 0;
   background: none;
 }
+
+.maria_bio{
+  text-align: center;
+}
+
+
+
+
+
 img.resp {
   width: 100%;
   height: auto;
@@ -1840,7 +1853,7 @@ span.hs {
 */
 .service-item {
   width: 100%;
-  height: 320px;
+  height: 420px;
   margin: 10px 0;
   text-align: center;
   border: 1px solid #f2f2f2;
@@ -2107,7 +2120,7 @@ span.hs {
    ============================== */
 .team-item {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .team-item .team-social {
   position: absolute;
@@ -2315,8 +2328,8 @@ span.hs {
   margin-left: -7px;
 }
 .pricing-button {
-  margin: 30px -20px 0;
-  padding-top: 30px;
+  /*margin: 30px -20px 0;*/
+  /*padding-top: 30px;*/
   border-top: 1px solid #f1f1f1;
 }
 .pricing-period {
